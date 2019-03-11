@@ -19,8 +19,7 @@ programme
   
 Procédure	de	qualification :	88600/1/2/3	Informaticien/ne CFC	(Ordonnance 2014) Cahier	des charges
 
-Page	3 sur	3 Version	1.1-ordo2k14 (2019)
-©	I-CQ	VD	2017/19
+
 
 Version	1.0
 
@@ -36,3 +35,6 @@ Notes :
  * • Une	 extension	 pourra	 être	 envisagée	 pour	 ceux	 qui	 auraient	 terminé	 toutes	 les	
 fonctionnalités	avant	la	 fin	du	 temps	imparti.	Elle	sera	à	discuter	entre	l’élève	et	le	
 mandant	du	projet.
+
+Page	3 sur	3                                                     Version	1.1-ordo2k14 (2019)
+                                                                 ©	I-CQ	VD	2017/19
