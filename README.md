@@ -10,6 +10,7 @@ Il	s’agit	d’un	jeu	implémentant	les	règles	de	la	bataille	navale.	Ce	proje
   
 ## Fonctionnalités minimales
 Le	type	d’application	C	demandé	doit	offrir	les	fonctionnalités	minimales	suivantes	:
+
 Version	0.1:
 
   * • Jouer	 à	 la	 bataille	 navale	 alors	 que	 la	 position	 des	 bateaux	 est	 codée	 dans	 le	
