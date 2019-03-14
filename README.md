@@ -34,9 +34,18 @@ Notes :
 fonctionnalités	avant	la	 fin	du	 temps	imparti.	Elle	sera	à	discuter	entre	l’élève	et	le	
 mandant	du	projet.
 
-# Comment utilisez mon programme
+# Comment générée mon exécutable
 
-Pour lancer mon programme il faut cloner mon repository, ouvrir Clion, lancer le programme bataille navale, faire un build, copier le chemin de l'executable, coller sur un cmd, lancer le programme et jouer.
+* Cloner mon repository 
+* Ouvrir Clion 
+* Lancer le programme bataille navale
+* Faire un build.
+
+# Comment lancer mon exécutable
+
+* Copier le chemin de l'executable
+* Coller sur un cmd
+* Lancer le programme et jouer.
 
 Page	3 sur	3                                                     Version	1.1-ordo2k14 (2019)
                                                                  ©	I-CQ	VD	2017/19
