@@ -36,11 +36,16 @@ mandant	du	projet.
 
 # Comment lancer mon exécutable
 
-Pour lancer mon programme il faut cloner mon repository, ouvrir Clion, lancer le programme bataille navale, faire un build.
+* Cloner mon repository 
+* Ouvrir Clion 
+* Lancer le programme bataille navale
+* Faire un build.
 
 # Comment générée mon exécutable
 
-Il faut copier le chemin de l'executable, coller sur un cmd, lancer le programme et jouer.
+* Copier le chemin de l'executable
+* Coller sur un cmd
+* Lancer le programme et jouer.
 
 Page	3 sur	3                                                     Version	1.1-ordo2k14 (2019)
                                                                  ©	I-CQ	VD	2017/19
