@@ -34,14 +34,14 @@ Notes :
 fonctionnalités	avant	la	 fin	du	 temps	imparti.	Elle	sera	à	discuter	entre	l’élève	et	le	
 mandant	du	projet.
 
-# Comment lancer mon exécutable
+# Comment générée mon exécutable
 
 * Cloner mon repository 
 * Ouvrir Clion 
 * Lancer le programme bataille navale
 * Faire un build.
 
-# Comment générée mon exécutable
+# Comment lancer mon exécutable
 
 * Copier le chemin de l'executable
 * Coller sur un cmd
