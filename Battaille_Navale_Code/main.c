@@ -1,4 +1,60 @@
 #include <stdio.h>
+#include <windows.h>
+
+#define SIZE 10
+#define STLC 218 // ┌, Single Top Left Corner
+#define STRC 191 // ┐, Single Top Right Corner
+#define SBLC 192 // └, Single Bottom Left Corner
+#define SBRC 217 // ┘, Single Bottom Right Corner
+#define SVSB 179 // │, Single Vertical Simple Border
+#define SVRB 180 // ┤, Single Vertical Right Border
+#define SVLB 195 // ├, Single Vertical Left Border
+#define SHSB 196 // ─, Single Horizontal Simple Border
+#define SHBB 193 // ┴, Single Horizontal Bottom Border
+#define SHTB 194 // ┬, Single Horizontal Top Border
+#define SC   197 // ┼, Single Center
+#define DTLC 201 // ╔, Double Top Left Corner
+#define DTRC 187 // ╗, Double Top Right Corner
+#define DBLC 200 // ╚, Double Bottom Left Corner
+#define DBRC 188 // ╝, Double Bottom Right Corner
+#define DVSB 186 // ║, Double Vertical Simple Border
+#define DVRB 185 // ╣, Double Vertical Right Border
+#define DVLB 204 // ╠, Double Vertical Left Border
+#define DHSB 205 // ═, Double Horizontal Simple Border
+#define DHBB 202 // ╩, Double Horizontal Bottom Border
+#define DHTB 203 // ╦, Double Horizontal Top Border
+#define DC   206 // ╬, Double Center
+
+void TopBorder(int width) {
+    printf("%c", STLC);
+    for (int i = 0; i < width; i++) {
+        printf("%c%c", SHSB, SHTB);
+    }
+    printf("%c%c\n", SHSB, STRC);
+}
+
+void VerticalBars(int width) {
+    for (int i = 0; i <= width; i++) {
+        printf("%c ", SVSB);
+    }
+    printf("%c\n", SVSB);
+}
+
+void HorizontalBars(int width) {
+    printf("%c%c", SVLB, SHSB);
+    for (int i = 0; i < width; i++) {
+        printf("%c%c", SC, SHSB);
+    }
+    printf("%c\n", SVRB);
+}
+
+void BottomBorder(int width) {
+    printf("%c", SBLC);
+    for (int i = 0; i < width; i++) {
+        printf("%c%c", SHSB, SHBB);
+    }
+    printf("%c%c", SHSB, SBRC);
+}
 
 int main() {
     int choix;
@@ -6,23 +62,64 @@ int main() {
     int const regle = 2;
     int const parametre = 3;
     int const quitter = 0;
+    int width;
 
+    for (int row = 0; row < SIZE; row++) {
+        if (row == 0) // first line
+        {
+            TopBorder(SIZE);
+        }
+        else
+        {
+            HorizontalBars(SIZE);
+        }
+        VerticalBars(SIZE);
+    }
+    BottomBorder(SIZE);
 
     printf("Bienvenue dans le Menu du jeu\n\n");
 
     printf("Taper %d pour jouer\n", jouer);
     printf("Taper %d pour afficher les regles\n", regle);
-    printf("Taper %d pour les parametres\n", parametre) ;
+    printf("Taper %d pour les parametres\n", parametre);
     printf("Taper %d pour quitter le jeu\n\n", quitter);
     scanf("%d", &choix);
 
-    if(choix == regle)
+    {
+        SetConsoleOutputCP(65001); // For accented characters
+        printf("Une grille basée sur les lignes simples:\n");
+        SetConsoleOutputCP(437); // For semi-graphic characters
+
+        printf("%c%c%c%c%c%c%c%c%c\n", STLC, SHSB, SHSB, SHSB, SHTB, SHSB, SHSB, SHSB, STRC);
+        printf("%c   %c   %c\n", SVSB, SVSB, SVSB);
+        printf("%c%c%c%c%c%c%c%c%c\n", SVLB, SHSB, SHSB, SHSB, SC, SHSB, SHSB, SHSB, SVRB);
+        printf("%c   %c   %c\n", SVSB, SVSB, SVSB);
+        printf("%c%c%c%c%c%c%c%c%c\n", SBLC, SHSB, SHSB, SHSB, SHBB, SHSB, SHSB, SHSB, SBRC);
+        printf("%c%c%c%c%c%c%c%c%c\n", STLC, SHSB, SHSB, SHSB, SHTB, SHSB, SHSB, SHSB, STRC);
+        printf("%c   %c   %c\n", SVSB, SVSB, SVSB);
+        printf("%c%c%c%c%c%c%c%c%c\n", SVLB, SHSB, SHSB, SHSB, SC, SHSB, SHSB, SHSB, SVRB);
+        printf("%c   %c   %c\n", SVSB, SVSB, SVSB);
+        printf("%c%c%c%c%c%c%c%c%c\n", SBLC, SHSB, SHSB, SHSB, SHBB, SHSB, SHSB, SHSB, SBRC);
+
+        SetConsoleOutputCP(65001); // For accented characters
+        printf("\n\nUne grille basée sur les lignes doubles:\n");
+        SetConsoleOutputCP(437); // For semi-graphic characters
+        printf("%c%c%c%c%c%c%c%c%c\n", DTLC, DHSB, DHSB, DHSB, DHTB, DHSB, DHSB, DHSB, DTRC);
+        printf("%c   %c   %c\n", DVSB, DVSB, DVSB);
+        printf("%c%c%c%c%c%c%c%c%c\n", DVLB, DHSB, DHSB, DHSB, DC, DHSB, DHSB, DHSB, DVRB);
+        printf("%c   %c   %c\n", DVSB, DVSB, DVSB);
+        printf("%c%c%c%c%c%c%c%c%c\n", DBLC, DHSB, DHSB, DHSB, DHBB, DHSB, DHSB, DHSB, DBRC);
+
+    }
+
+    if (choix == regle)
         printf("2. Regle de la Bataille navale\n"
-           "Une grille de jeu numerotee de 1 a 10 horizontalement et de A a J verticalement.\n"
-           "1 porte avion (5 cases)\n"
-           "1 croiseur (4 cases)\n"
-           "1 contre torpilleur (3 cases)\n"
-           "1 sous-marin (3 cases)\n"
-           "1 torpilleur (2 cases)");
+               "Une grille de jeu numerotee de 1 a 10 horizontalement et de A a J verticalement.\n"
+               "1 porte avion (5 cases)\n"
+               "1 croiseur (4 cases)\n"
+               "1 contre torpilleur (3 cases)\n"
+               "1 sous-marin (3 cases)\n"
+               "1 torpilleur (2 cases)");
+
     return 0;
 }
