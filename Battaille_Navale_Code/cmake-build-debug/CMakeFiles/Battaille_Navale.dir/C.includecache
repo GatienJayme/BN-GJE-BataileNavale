@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gatien.JAYME/Documents/GitHub/Bataille-Navale/Battaille_Navale_Code/main.c
+stdio.h
+-
+windows.h
+-
+

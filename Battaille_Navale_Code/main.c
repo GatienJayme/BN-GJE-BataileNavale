@@ -62,7 +62,6 @@ int main() {
     int const regle = 2;
     int const parametre = 3;
     int const quitter = 0;
-    int width;
 
     for (int row = 0; row < SIZE; row++) {
         if (row == 0) // first line
@@ -84,33 +83,6 @@ int main() {
     printf("Taper %d pour les parametres\n", parametre);
     printf("Taper %d pour quitter le jeu\n\n", quitter);
     scanf("%d", &choix);
-
-    {
-        SetConsoleOutputCP(65001); // For accented characters
-        printf("Une grille basée sur les lignes simples:\n");
-        SetConsoleOutputCP(437); // For semi-graphic characters
-
-        printf("%c%c%c%c%c%c%c%c%c\n", STLC, SHSB, SHSB, SHSB, SHTB, SHSB, SHSB, SHSB, STRC);
-        printf("%c   %c   %c\n", SVSB, SVSB, SVSB);
-        printf("%c%c%c%c%c%c%c%c%c\n", SVLB, SHSB, SHSB, SHSB, SC, SHSB, SHSB, SHSB, SVRB);
-        printf("%c   %c   %c\n", SVSB, SVSB, SVSB);
-        printf("%c%c%c%c%c%c%c%c%c\n", SBLC, SHSB, SHSB, SHSB, SHBB, SHSB, SHSB, SHSB, SBRC);
-        printf("%c%c%c%c%c%c%c%c%c\n", STLC, SHSB, SHSB, SHSB, SHTB, SHSB, SHSB, SHSB, STRC);
-        printf("%c   %c   %c\n", SVSB, SVSB, SVSB);
-        printf("%c%c%c%c%c%c%c%c%c\n", SVLB, SHSB, SHSB, SHSB, SC, SHSB, SHSB, SHSB, SVRB);
-        printf("%c   %c   %c\n", SVSB, SVSB, SVSB);
-        printf("%c%c%c%c%c%c%c%c%c\n", SBLC, SHSB, SHSB, SHSB, SHBB, SHSB, SHSB, SHSB, SBRC);
-
-        SetConsoleOutputCP(65001); // For accented characters
-        printf("\n\nUne grille basée sur les lignes doubles:\n");
-        SetConsoleOutputCP(437); // For semi-graphic characters
-        printf("%c%c%c%c%c%c%c%c%c\n", DTLC, DHSB, DHSB, DHSB, DHTB, DHSB, DHSB, DHSB, DTRC);
-        printf("%c   %c   %c\n", DVSB, DVSB, DVSB);
-        printf("%c%c%c%c%c%c%c%c%c\n", DVLB, DHSB, DHSB, DHSB, DC, DHSB, DHSB, DHSB, DVRB);
-        printf("%c   %c   %c\n", DVSB, DVSB, DVSB);
-        printf("%c%c%c%c%c%c%c%c%c\n", DBLC, DHSB, DHSB, DHSB, DHBB, DHSB, DHSB, DHSB, DBRC);
-
-    }
 
     if (choix == regle)
         printf("2. Regle de la Bataille navale\n"
