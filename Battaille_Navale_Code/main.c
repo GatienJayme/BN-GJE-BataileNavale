@@ -28,22 +28,22 @@
 void TopBorder(int width) {
     printf("%c", STLC);
     for (int i = 0; i < width; i++) {
-        printf("%c%c", SHSB, SHTB);
-    }
-    printf("%c%c\n", SHSB, STRC);
+        printf("%c%c%c%c",SHSB, SHSB,SHSB, SHTB);
+}
+    printf("%c%c%c%c\n", SHSB, SHSB, SHSB, STRC);
 }
 
 void VerticalBars(int width) {
     for (int i = 0; i <= width; i++) {
-        printf("%c ", SVSB);
+        printf("%c   ", SVSB);
     }
     printf("%c\n", SVSB);
 }
 
 void HorizontalBars(int width) {
-    printf("%c%c", SVLB, SHSB);
+    printf("%c%c%c%c", SVLB, SHSB, SHSB, SHSB);
     for (int i = 0; i < width; i++) {
-        printf("%c%c", SC, SHSB);
+        printf("%c%c%c%c", SC, SHSB, SHSB, SHSB);
     }
     printf("%c\n", SVRB);
 }
@@ -51,9 +51,9 @@ void HorizontalBars(int width) {
 void BottomBorder(int width) {
     printf("%c", SBLC);
     for (int i = 0; i < width; i++) {
-        printf("%c%c", SHSB, SHBB);
+        printf("%c%c%c%c", SHSB, SHSB, SHSB, SHBB);
     }
-    printf("%c%c", SHSB, SBRC);
+    printf("%c%c%c%c", SHSB, SHSB, SHSB, SBRC);
 }
 
 int main() {
