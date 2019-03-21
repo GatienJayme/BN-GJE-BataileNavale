@@ -43,9 +43,11 @@ mandant	du	projet.
 
 # Comment lancer mon exécutable
 
-* Copier le chemin de l'executable
-* Coller sur un cmd
-* Lancer le programme et jouer.
+* Dans le repository sur Github
+* Aller sur la dernière release
+* Téléchargez le fichier.zip
+* Prendre le fichier Bataille_Navale.exe
+* Lancer l'éxécutable.
 
 Page	3 sur	3                                                     Version	1.1-ordo2k14 (2019)
                                                                  ©	I-CQ	VD	2017/19
