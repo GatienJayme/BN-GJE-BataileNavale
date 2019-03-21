@@ -25,35 +25,45 @@
 #define DHTB 203 // ╦, Double Horizontal Top Border
 #define DC   206 // ╬, Double Center
 
+// Ligne du haut fonction entiere
 void TopBorder(int width) {
-    printf("%c", STLC);
-    for (int i = 0; i < width; i++) {
-        printf("%c%c%c%c",SHSB, SHSB,SHSB, SHTB);
-}
+    printf("     ");
+    for (int j = 0; j < width; ++j) {
+        printf("%c   ", j + 'A');
+    }
+    printf("\n");
+    printf("   %c", STLC);
+    for (int i = 0; i < width - 1; i++) {
+        printf("%c%c%c%c", SHSB, SHSB, SHSB, SHTB);
+    }
     printf("%c%c%c%c\n", SHSB, SHSB, SHSB, STRC);
 }
 
-void VerticalBars(int width) {
-    for (int i = 0; i <= width; i++) {
+// Ligne vertical fonction entiere
+void VerticalBars(int width, int a) {
+    printf("%3d", a);
+    for (int i = 0; i < width; i++) {
         printf("%c   ", SVSB);
     }
     printf("%c\n", SVSB);
 }
 
+// Ligne horizontal fonction entiere
 void HorizontalBars(int width) {
-    printf("%c%c%c%c", SVLB, SHSB, SHSB, SHSB);
-    for (int i = 0; i < width; i++) {
+    printf("   %c%c%c%c", SVLB, SHSB, SHSB, SHSB);
+    for (int i = 0; i < width - 1; i++) {
         printf("%c%c%c%c", SC, SHSB, SHSB, SHSB);
     }
     printf("%c\n", SVRB);
 }
 
+// Ligne du bas fonction entiere
 void BottomBorder(int width) {
-    printf("%c", SBLC);
-    for (int i = 0; i < width; i++) {
+    printf("   %c", SBLC);
+    for (int i = 0; i < width - 1; i++) {
         printf("%c%c%c%c", SHSB, SHSB, SHSB, SHBB);
     }
-    printf("%c%c%c%c", SHSB, SHSB, SHSB, SBRC);
+    printf("%c%c%c%c\n", SHSB, SHSB, SHSB, SBRC);
 }
 
 int main() {
@@ -63,35 +73,62 @@ int main() {
     int const parametre = 3;
     int const quitter = 0;
 
-    for (int row = 0; row < SIZE; row++) {
-        if (row == 0) // first line
-        {
-            TopBorder(SIZE);
+    while (1) {
+        // Menu du jeu
+        printf("Bienvenue dans le Menu du jeu\n\n");
+
+        printf("Taper %d pour jouer\n", jouer);
+        printf("Taper %d pour afficher les regles\n", regle);
+        printf("Taper %d pour les parametres\n", parametre);
+        printf("Taper %d pour quitter le jeu\n\n", quitter);
+        scanf("%d", &choix);
+
+        // Numero 1 = jouer
+        if (choix == jouer) {
+            for (int row = 0; row < SIZE; row++) {
+                if (row == 0) // first line
+                {
+                    TopBorder(SIZE);
+                } else {
+                    HorizontalBars(SIZE);
+                }
+                VerticalBars(SIZE, row + 1);
+            }
+            BottomBorder(SIZE);
         }
-        else
-        {
-            HorizontalBars(SIZE);
+        // Affichage de la grille
+        int grille[10][10] = {{3, 0,  0,  0,  0,  0, -1, 0, 0, 0},
+                              {3, 0,  0,  1,  0,  0, -1, 0, 0, 0},
+                              {3, 0,  -1, 0,  0,  0, 0,  5, 0, 0},
+                              {0, 2,  2,  -1, 0,  0, 0,  5, 0, 0},
+                              {0, 0,  0,  0,  -1, 0, 0,  5, 0, 0},
+                              {4, 0,  -1, 0,  0,  0, 0,  5, 0, 0},
+                              {4, 0,  0,  1,  -1, 0, 0,  5, 0, 0},
+                              {4, -1, 0,  0,  0,  0, 2,  0, 0, 0},
+                              {4, 0,  0,  -1, 0,  0, 2,  0, 0, 0},
+                              {0, -1, 0,  0,  0,  0, 0,  0, 0, 0}};
+        // Numero 2 = regle du jeu
+        if (choix == regle) {
+            printf("2. Regle de la Bataille navale\n"
+                   "Une grille de jeu numerotee de 1 a 10 horizontalement et de A a J verticalement.\n"
+                   "1 porte avion (5 cases)\n"
+                   "1 croiseur (4 cases)\n"
+                   "1 contre torpilleur (3 cases)\n"
+                   "1 sous-marin (3 cases)\n"
+                   "1 torpilleur (2 cases)");
         }
-        VerticalBars(SIZE);
+
+        // Numero 3 = parametre de la grille
+        if (choix == parametre) {
+
+        }
+
+        // Numero 0 = quitter le jeu
+        if (choix == quitter) {
+            return 0;
+        }
+        if (choix > 3) {
+            printf("Mettez un veritable numero :)");
+        }
     }
-    BottomBorder(SIZE);
-
-    printf("Bienvenue dans le Menu du jeu\n\n");
-
-    printf("Taper %d pour jouer\n", jouer);
-    printf("Taper %d pour afficher les regles\n", regle);
-    printf("Taper %d pour les parametres\n", parametre);
-    printf("Taper %d pour quitter le jeu\n\n", quitter);
-    scanf("%d", &choix);
-
-    if (choix == regle)
-        printf("2. Regle de la Bataille navale\n"
-               "Une grille de jeu numerotee de 1 a 10 horizontalement et de A a J verticalement.\n"
-               "1 porte avion (5 cases)\n"
-               "1 croiseur (4 cases)\n"
-               "1 contre torpilleur (3 cases)\n"
-               "1 sous-marin (3 cases)\n"
-               "1 torpilleur (2 cases)");
-
-    return 0;
 }
