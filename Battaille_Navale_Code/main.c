@@ -1,7 +1,11 @@
+// Programm: bataille navale game
+// Author: Gatien Jayme
+// Date: 22.03.2019
 #include <stdio.h>
 #include <windows.h>
 
-#define SIZE 10
+#define SIZE 10 // constante de la grille
+// Constante pour faire la grille
 #define STLC 218 // ┌, Single Top Left Corner
 #define STRC 191 // ┐, Single Top Right Corner
 #define SBLC 192 // └, Single Bottom Left Corner
@@ -25,6 +29,18 @@
 #define DHTB 203 // ╦, Double Horizontal Top Border
 #define DC   206 // ╬, Double Center
 
+// Affichage de la grille
+int grille[10][10] = {{3, 0,  0,  0,  0,  0, -1, 0, 0, 0},
+                      {3, 0,  0,  1,  0,  0, -1, 0, 0, 0},
+                      {3, 0,  -1, 0,  0,  0, 0,  5, 0, 0},
+                      {0, 2,  2,  -1, 0,  0, 0,  5, 0, 0},
+                      {0, 0,  0,  0,  -1, 0, 0,  5, 0, 0},
+                      {4, 0,  -1, 0,  0,  0, 0,  5, 0, 0},
+                      {4, 0,  0,  1,  -1, 0, 0,  5, 0, 0},
+                      {4, -1, 0,  0,  0,  0, 2,  0, 0, 0},
+                      {4, 0,  0,  -1, 0,  0, 2,  0, 0, 0},
+                      {0, -1, 0,  0,  0,  0, 0,  0, 0, 0}};
+
 // Ligne du haut fonction entiere
 void TopBorder(int width) {
     printf("     ");
@@ -42,8 +58,18 @@ void TopBorder(int width) {
 // Ligne vertical fonction entiere
 void VerticalBars(int width, int a) {
     printf("%3d", a);
+    int vcase = 3;
+    char charcase;
     for (int i = 0; i < width; i++) {
-        printf("%c   ", SVSB);
+        vcase = grille [a-1] [i];
+        charcase = ' ';
+        if(vcase < 0){
+            charcase = '.';
+        }
+        if(vcase > 0){
+            charcase = 'x';
+        }
+         printf("%c %c ", SVSB, charcase);
     }
     printf("%c\n", SVSB);
 }
@@ -67,11 +93,11 @@ void BottomBorder(int width) {
 }
 
 int main() {
-    int choix;
-    int const jouer = 1;
-    int const regle = 2;
-    int const parametre = 3;
-    int const quitter = 0;
+    int choix; // Choix de la personne qui jouera
+    int const jouer = 1; // Jouer a la bataille
+    int const regle = 2; // Afficher les règle
+    int const parametre = 3; // Parametre de la grille
+    int const quitter = 0; // Quitter le programme
 
     while (1) {
         // Menu du jeu
@@ -96,17 +122,7 @@ int main() {
             }
             BottomBorder(SIZE);
         }
-        // Affichage de la grille
-        int grille[10][10] = {{3, 0,  0,  0,  0,  0, -1, 0, 0, 0},
-                              {3, 0,  0,  1,  0,  0, -1, 0, 0, 0},
-                              {3, 0,  -1, 0,  0,  0, 0,  5, 0, 0},
-                              {0, 2,  2,  -1, 0,  0, 0,  5, 0, 0},
-                              {0, 0,  0,  0,  -1, 0, 0,  5, 0, 0},
-                              {4, 0,  -1, 0,  0,  0, 0,  5, 0, 0},
-                              {4, 0,  0,  1,  -1, 0, 0,  5, 0, 0},
-                              {4, -1, 0,  0,  0,  0, 2,  0, 0, 0},
-                              {4, 0,  0,  -1, 0,  0, 2,  0, 0, 0},
-                              {0, -1, 0,  0,  0,  0, 0,  0, 0, 0}};
+
         // Numero 2 = regle du jeu
         if (choix == regle) {
             printf("2. Regle de la Bataille navale\n"
@@ -120,6 +136,7 @@ int main() {
 
         // Numero 3 = parametre de la grille
         if (choix == parametre) {
+            printf("3. affichage des parametres de la grille");
 
         }
 
@@ -128,7 +145,7 @@ int main() {
             return 0;
         }
         if (choix > 3) {
-            printf("Mettez un veritable numero :)");
+            printf("Mettez un veritable numero :)\n\n");
         }
     }
 }
