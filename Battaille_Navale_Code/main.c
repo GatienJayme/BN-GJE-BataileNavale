@@ -17,6 +17,8 @@
 #define SHBB 193 // ┴, Single Horizontal Bottom Border
 #define SHTB 194 // ┬, Single Horizontal Top Border
 #define SC   197 // ┼, Single Center
+#define TOUCHE 176 // ░
+#define COULE 219 // █
 #define DTLC 201 // ╔, Double Top Left Corner
 #define DTRC 187 // ╗, Double Top Right Corner
 #define DBLC 200 // ╚, Double Bottom Left Corner
@@ -30,17 +32,16 @@
 #define DC   206 // ╬, Double Center
 
 // Affichage de la grille
-int grille[10][10] = {{3, 0,  0,  0,  0,  0, -1, 0, 0, 0},
-                      {3, 0,  0,  1,  0,  0, -1, 0, 0, 0},
-                      {3, 0,  -1, 0,  0,  0, 0,  5, 0, 0},
-                      {0, 2,  2,  -1, 0,  0, 0,  5, 0, 0},
-                      {0, 0,  0,  0,  -1, 0, 0,  5, 0, 0},
-                      {4, 0,  -1, 0,  0,  0, 0,  5, 0, 0},
-                      {4, 0,  0,  1,  -1, 0, 0,  5, 0, 0},
-                      {4, -1, 0,  0,  0,  0, 2,  0, 0, 0},
-                      {4, 0,  0,  -1, 0,  0, 2,  0, 0, 0},
-                      {0, -1, 0,  0,  0,  0, 0,  0, 0, 0}};
-
+int grille[10][10] = {{3, 0,  0,  0,  0,  0, -1, 0, 0, -1},
+                      {3, 0,  0,  1,  -1,  0, -1, 0, 0, 0},
+                      {3, -1,  -1, 0,  0,  0, 0,  5, 0, 0},
+                      {0, 2,  2,  -1, 0,  0, 0,  15, 0, 0},
+                      {0, 0,  0,  0,  -1, 0, 0,  15, 0, 0},
+                      {4, 0,  -1, 0,  0,  -1, 0,  5, 0, 0},
+                      {4, 0,  -1,  1,  -1, 0, 0,  5, 0, 0},
+                      {4, -1, 0,  0,  0,  0, 22,  0, 0, 0},
+                      {4, 0,  0,  -1, 0,  0, 22,  0, 0, 0},
+                      {0, -1, 0,  0,  0,  0, 0,  0, 0, -1}};
 // Ligne du haut fonction entiere
 void TopBorder(int width) {
     printf("     ");
@@ -66,7 +67,7 @@ void VerticalBars(int width, int a) {
         if(vcase < 0){
             charcase = '.';
         }
-        if(vcase > 0){
+        if(grille[a] < 10){
             charcase = 'x';
         }
          printf("%c %c ", SVSB, charcase);
