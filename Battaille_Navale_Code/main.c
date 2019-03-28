@@ -32,16 +32,25 @@
 #define DC   206 // ╬, Double Center
 
 // Affichage de la grille
-int grille[10][10] = {{3, 0,  0,  0,  0,  0, -1, 0, 0, -1},
-                      {3, 0,  0,  1,  -1,  0, -1, 0, 0, 0},
-                      {3, -1,  -1, 0,  0,  0, 0,  5, 0, 0},
-                      {0, 2,  2,  -1, 0,  0, 0,  15, 0, 0},
-                      {0, 0,  0,  0,  -1, 0, 0,  15, 0, 0},
-                      {4, 0,  -1, 0,  0,  -1, 0,  5, 0, 0},
-                      {4, 0,  -1,  1,  -1, 0, 0,  5, 0, 0},
-                      {4, -1, 0,  0,  0,  0, 22,  0, 0, 0},
-                      {4, 0,  0,  -1, 0,  0, 22,  0, 0, 0},
-                      {0, -1, 0,  0,  0,  0, 0,  0, 0, -1}};
+int grille[SIZE][SIZE] = {{13, -1, -1, -1, -1, -1, -1, 0,  0,  0},
+                          {13, -1, 0,  0,  0,  0,  0,  -1, 0,  0},
+                          {3,  -1, 0,  23, 23, 23, 0,  -1, 4,  15},
+                          {0,  -1, 2,  2,  0,  0,  0,  -1, 14,  15},
+                          {0,  -1, -1, -1, -1, -1, -1, 0,  14, 5},
+                          {4,  -1, -1, -1, -1, -1, -1, 0,  14, 5},
+                          {4,  -1, 0,  0,  0,  0,  0,  -1, 0,  5},
+                          {4,  -1, 0,  0,  0,  0,  22, -1, 0,  0},
+                          {4,  -1, 0,  0,  0,  0,  22, -1, 0,  0},
+                          {0,  -1, -1, -1, -1, -1, -1, 0,  2,  2}};
+// Cette fonction sert à ne pas faire planter le programme en utilisant des lettres
+void vider_buffer() {
+
+    int c;
+    do {
+        c = getchar();
+    } while (c != EOF && c != '\n');
+}
+
 // Ligne du haut fonction entiere
 void TopBorder(int width) {
     printf("     ");
@@ -58,19 +67,26 @@ void TopBorder(int width) {
 
 // Ligne vertical fonction entiere
 void VerticalBars(int width, int a) {
+    // %3d est utliser pour dire que dans l'espeace il y a trois espace pour ecrire
     printf("%3d", a);
-    int vcase = 3;
+    int vcase;
     char charcase;
     for (int i = 0; i < width; i++) {
-        vcase = grille [a-1] [i];
+        vcase = grille[a - 1][i];
         charcase = ' ';
-        if(vcase < 0){
+        // boucle pour touche affichage ░
+        if (vcase > 10 && vcase < 20) {
+            charcase = TOUCHE; // ░;
+        }
+        // boucle pour a l'eau affichage .
+        if (vcase < 0) {
             charcase = '.';
         }
-        if(grille[a] < 10){
-            charcase = 'x';
+        // boucle pour coule affichage █
+        if (vcase > 20 && vcase < 30) {
+            charcase = COULE; // █
         }
-         printf("%c %c ", SVSB, charcase);
+        printf("%c %c ", SVSB, charcase);
     }
     printf("%c\n", SVSB);
 }
@@ -109,6 +125,19 @@ int main() {
         printf("Taper %d pour les parametres\n", parametre);
         printf("Taper %d pour quitter le jeu\n\n", quitter);
         scanf("%d", &choix);
+        while (!(choix == 1 || choix == 2 || choix == 3 || choix == 0)) {
+            vider_buffer();
+            // Cela sert a nettoyer les réponses
+            system("cls");
+            printf("Bienvenue dans le Menu du jeu\n\n");
+            printf("Taper %d pour jouer\n", jouer);
+            printf("Taper %d pour afficher les regles\n", regle);
+            printf("Taper %d pour les parametres\n", parametre);
+            printf("Taper %d pour quitter le jeu\n\n", quitter);
+
+            scanf("%d", &choix);
+        }
+
 
         // Numero 1 = jouer
         if (choix == jouer) {
@@ -137,7 +166,7 @@ int main() {
 
         // Numero 3 = parametre de la grille
         if (choix == parametre) {
-            printf("3. affichage des parametres de la grille");
+            printf("3. affichage des parametres de la grille\n\n");
 
         }
 
@@ -145,6 +174,7 @@ int main() {
         if (choix == quitter) {
             return 0;
         }
+        // boucle pour ne pas utiliser d'autre nombre que ceux proposer pour ne pas faire planter le programme
         if (choix > 3) {
             printf("Mettez un veritable numero :)\n\n");
         }
