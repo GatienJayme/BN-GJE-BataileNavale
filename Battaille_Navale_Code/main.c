@@ -35,13 +35,14 @@
 int grille[SIZE][SIZE] = {{13, -1, -1, -1, -1, -1, -1, 0,  0,  0},
                           {13, -1, 0,  0,  0,  0,  0,  -1, 0,  0},
                           {3,  -1, 0,  23, 23, 23, 0,  -1, 4,  15},
-                          {0,  -1, 2,  2,  0,  0,  0,  -1, 14,  15},
+                          {0,  -1, 2,  2,  0,  0,  0,  -1, 14, 15},
                           {0,  -1, -1, -1, -1, -1, -1, 0,  14, 5},
                           {4,  -1, -1, -1, -1, -1, -1, 0,  14, 5},
                           {4,  -1, 0,  0,  0,  0,  0,  -1, 0,  5},
                           {4,  -1, 0,  0,  0,  0,  22, -1, 0,  0},
                           {4,  -1, 0,  0,  0,  0,  22, -1, 0,  0},
                           {0,  -1, -1, -1, -1, -1, -1, 0,  2,  2}};
+
 // Cette fonction sert à ne pas faire planter le programme en utilisant des lettres
 void vider_buffer() {
 
@@ -109,6 +110,33 @@ void BottomBorder(int width) {
     printf("%c%c%c%c\n", SHSB, SHSB, SHSB, SBRC);
 }
 
+void playgame() {
+    int test = 0;
+    while (test != 1) {
+        printf("choississez une cible :\n");
+        // afficher la grille
+        printf("Voici votre grille\n");
+        for (int row = 0; row < SIZE; row++) {
+            if (row == 0) // first line
+            {
+                TopBorder(SIZE);
+            } else {
+                HorizontalBars(SIZE);
+            }
+            VerticalBars(SIZE, row + 1);
+        }
+        BottomBorder(SIZE);
+
+        // demandez des coordonnees de tirs
+        char tir [5];
+        printf("Faites votre Tirs ET TOUCHE UN BATEAU !!!\n");
+        printf("Entrez vos coordonnees :");
+        scanf("%s", tir);
+
+        // appliquer les tirs sur le modele
+    }
+}
+
 int main() {
     int choix; // Choix de la personne qui jouera
     int const jouer = 1; // Jouer a la bataille
@@ -141,17 +169,9 @@ int main() {
 
         // Numero 1 = jouer
         if (choix == jouer) {
-            for (int row = 0; row < SIZE; row++) {
-                if (row == 0) // first line
-                {
-                    TopBorder(SIZE);
-                } else {
-                    HorizontalBars(SIZE);
-                }
-                VerticalBars(SIZE, row + 1);
-            }
-            BottomBorder(SIZE);
+            playgame();
         }
+
 
         // Numero 2 = regle du jeu
         if (choix == regle) {
