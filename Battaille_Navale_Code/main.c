@@ -32,16 +32,16 @@
 #define DC   206 // ╬, Double Center
 
 // Affichage de la grille
-int grille[SIZE][SIZE] = {{13, -1, -1, -1, -1, -1, -1, 0,  0,  0},
-                          {13, -1, 0,  0,  0,  0,  0,  -1, 0,  0},
-                          {3,  -1, 0,  23, 23, 23, 0,  -1, 4,  15},
-                          {0,  -1, 2,  2,  0,  0,  0,  -1, 14, 15},
-                          {0,  -1, -1, -1, -1, -1, -1, 0,  14, 5},
-                          {4,  -1, -1, -1, -1, -1, -1, 0,  14, 5},
-                          {4,  -1, 0,  0,  0,  0,  0,  -1, 0,  5},
-                          {4,  -1, 0,  0,  0,  0,  22, -1, 0,  0},
-                          {4,  -1, 0,  0,  0,  0,  22, -1, 0,  0},
-                          {0,  -1, -1, -1, -1, -1, -1, 0,  2,  2}};
+int grille[SIZE][SIZE] = {{3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                          {3, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                          {3, 0, 0, 3, 3, 3, 0, 0, 4, 5},
+                          {0, 0, 2, 2, 0, 0, 0, 1, 4, 5},
+                          {0, 0, 0, 0, 0, 0, 0, 0, 4, 5},
+                          {4, 0, 0, 0, 0, 0, 0, 0, 4, 5},
+                          {4, 0, 0, 0, 0, 0, 0, 0, 0, 5},
+                          {4, 0, 0, 0, 0, 0, 2, 0, 0, 0},
+                          {4, 0, 0, 0, 0, 0, 2, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0, 0, 2, 2}};
 
 // Cette fonction sert à ne pas faire planter le programme en utilisant des lettres
 void vider_buffer() {
@@ -128,12 +128,28 @@ void playgame() {
         BottomBorder(SIZE);
 
         // demandez des coordonnees de tirs
-        char tir [5];
+        char tir[5];
         printf("Faites votre Tirs ET TOUCHE UN BATEAU !!!\n");
         printf("Entrez vos coordonnees :");
         scanf("%s", tir);
+        int col = tir[1] -49; // ligne
+        int li = tir[0] -65; // colonne
+        int valcase = grille[col][li];
+        if(valcase == 0){
+            grille[col][li] = -1;
+        }
+        printf("%d %d %d", li, col, valcase);
 
         // appliquer les tirs sur le modele
+        char charcase;
+        int hits[10];
+        for (hits[10] = 0; hits[10] < 1; hits[10]++) {
+            if (hits[10] == 1) {
+                printf("touche\n");
+                charcase = TOUCHE;
+            }
+
+        }
     }
 }
 
