@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="87" column="34" lean-forward="true" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+            <state relative-caret-position="1359">
+              <caret line="149" selection-start-line="149" selection-end-line="149" />
               <folding>
                 <element signature="e#78#96#0" expanded="true" />
               </folding>
@@ -52,7 +52,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-31" />
+    <option name="x" value="-17" />
+    <option name="y" value="31" />
     <option name="width" value="1032" />
     <option name="height" value="1047" />
   </component>
@@ -62,13 +63,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Battaille_Navale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Battaille_Navale_Code" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/ClionProject/Test formative" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -114,17 +125,25 @@
       <workItem from="1553759834316" duration="5745000" />
       <workItem from="1553784150453" duration="3023000" />
       <workItem from="1553842998768" duration="5959000" />
+      <workItem from="1553869736939" duration="33000" />
+      <workItem from="1553870067769" duration="24000" />
+      <workItem from="1553870104540" duration="357000" />
+      <workItem from="1553870511117" duration="194000" />
+      <workItem from="1553870985361" duration="15000" />
+      <workItem from="1553873072179" duration="207000" />
+      <workItem from="1553874535181" duration="119000" />
+      <workItem from="1554098860495" duration="4678000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31959000" />
+    <option name="totallyTimeSpent" value="37586000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-31" y="0" width="1032" height="1047" extended-state="0" />
+    <frame x="-17" y="31" width="1032" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2520576" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.068930045" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -162,8 +181,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="87" column="34" lean-forward="true" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+        <state relative-caret-position="1359">
+          <caret line="149" selection-start-line="149" selection-end-line="149" />
           <folding>
             <element signature="e#78#96#0" expanded="true" />
           </folding>

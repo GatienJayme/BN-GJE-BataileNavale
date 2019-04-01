@@ -137,9 +137,26 @@ void playgame() {
         int valcase = grille[col][li];
         if(valcase == 0){
             grille[col][li] = -1;
+            printf("a l'eau\n");
+        }
+        else if(valcase > 1 && valcase < 10){
+            grille[col][li] = valcase > 1 && valcase < 10;
+            printf("Touche");
+        }
+        else{
+
+            grille[col][li] = valcase > 20 && valcase < 30;
+            printf("Touche Coule");
+
         }
         printf("%d %d %d", li, col, valcase);
 
+        /*int col2 = tir[2] -51; // conlonne
+        int li2 = tir[1] -67; // ligne
+        int valcase2 = grille[col][li];
+        if(valcase2 == 0){
+            grille[col][li] = vcase > 10 && vcase < 20;
+        }*/
         // appliquer les tirs sur le modele
         char charcase;
         int hits[10];
