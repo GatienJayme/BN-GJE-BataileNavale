@@ -19,31 +19,23 @@
 #define SC   197 // ┼, Single Center
 #define TOUCHE 176 // ░
 #define COULE 219 // █
-#define DTLC 201 // ╔, Double Top Left Corner
-#define DTRC 187 // ╗, Double Top Right Corner
-#define DBLC 200 // ╚, Double Bottom Left Corner
-#define DBRC 188 // ╝, Double Bottom Right Corner
-#define DVSB 186 // ║, Double Vertical Simple Border
-#define DVRB 185 // ╣, Double Vertical Right Border
-#define DVLB 204 // ╠, Double Vertical Left Border
-#define DHSB 205 // ═, Double Horizontal Simple Border
-#define DHBB 202 // ╩, Double Horizontal Bottom Border
-#define DHTB 203 // ╦, Double Horizontal Top Border
-#define DC   206 // ╬, Double Center
+#define VICTOIRE 1+2+3+4+5
+
 
 // Affichage de la grille
-int grille[SIZE][SIZE] = {{3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                          {3, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-                          {3, 0, 0, 3, 3, 3, 0, 0, 4, 5},
-                          {0, 0, 2, 2, 0, 0, 0, 1, 4, 5},
-                          {0, 0, 0, 0, 0, 0, 0, 0, 4, 5},
-                          {4, 0, 0, 0, 0, 0, 0, 0, 4, 5},
-                          {4, 0, 0, 0, 0, 0, 0, 0, 0, 5},
-                          {4, 0, 0, 0, 0, 0, 2, 0, 0, 0},
-                          {4, 0, 0, 0, 0, 0, 2, 0, 0, 0},
-                          {0, 0, 0, 0, 0, 0, 0, 0, 2, 2}};
+int grille[SIZE][SIZE] = {{0, 2, 2, 0, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0, 0, 0, 5},
+                          {0, 0, 0, 0, 0, 0, 0, 0, 0, 5},
+                          {0, 0, 0, 0, 3, 0, 0, 0, 0, 5},
+                          {4, 0, 0, 0, 3, 0, 0, 0, 0, 5},
+                          {4, 0, 0, 0, 3, 0, 0, 0, 0, 5},
+                          {4, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                          {4, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
 // Cette fonction sert à ne pas faire planter le programme en utilisant des lettres
+
 void vider_buffer() {
 
     int c;
@@ -111,8 +103,9 @@ void BottomBorder(int width) {
 }
 
 void playgame() {
-    int test = 0;
-    while (test != 1) {
+
+    int compteur = 0;
+    while (compteur <= VICTOIRE) {
         printf("choississez une cible :\n");
         // afficher la grille
         printf("Voici votre grille\n");
@@ -130,44 +123,51 @@ void playgame() {
         // demandez des coordonnees de tirs
         char tir[5];
         printf("Faites votre Tirs ET TOUCHE UN BATEAU !!!\n");
-        printf("Entrez vos coordonnees :");
+
+        printf("Entrez vos coordonnees :\n\n");
         scanf("%s", tir);
-        int col = tir[1] -49; // ligne
-        int li = tir[0] -65; // colonne
+        int col = tir[1] - 49; // ligne
+        int li = tir[0] - 65; // colonne
         int valcase = grille[col][li];
-        if(valcase == 0){
+        if (valcase == 0) {
             grille[col][li] = -1;
             printf("a l'eau\n");
+        } else if (valcase >= 1 && valcase < 10) { // C'est un bateau
+            grille[col][li] = valcase + 10;
+            printf("Touche\n");
+        } else {
+            printf("Cretin tu as deja tire ici tir autre part");
         }
-        else if(valcase > 1 && valcase < 10){
-            grille[col][li] = valcase > 1 && valcase < 10;
-            printf("Touche");
-        }
-        else{
-
-            grille[col][li] = valcase > 20 && valcase < 30;
-            printf("Touche Coule");
-
-        }
-        printf("%d %d %d", li, col, valcase);
-
-        /*int col2 = tir[2] -51; // conlonne
-        int li2 = tir[1] -67; // ligne
-        int valcase2 = grille[col][li];
-        if(valcase2 == 0){
-            grille[col][li] = vcase > 10 && vcase < 20;
-        }*/
-        // appliquer les tirs sur le modele
-        char charcase;
-        int hits[10];
-        for (hits[10] = 0; hits[10] < 1; hits[10]++) {
-            if (hits[10] == 1) {
-                printf("touche\n");
-                charcase = TOUCHE;
+        // nb12 = 0
+        // Parcourir grille
+        for (int bateau = 1; bateau <= 5; bateau++) {
+            int compteur = 0;
+            for (int x = 0; x < SIZE; x++) {
+                for (int y = 0; y < SIZE; y++) {
+                    valcase = grille[x][y];
+                    // bateau touche
+                    if (valcase == bateau + 10) {
+                        compteur++;
+                    }
+                }
             }
-
+            printf("%d\n", compteur);
+            if (compteur == bateau) {
+                printf("Touche Coule\n");
+                for (int x = 0; x < SIZE; x++) {
+                    for (int y = 0; y < SIZE; y++) {
+                        valcase = grille[x][y];
+                        if (valcase == bateau + 10) {
+                            grille[x][y] = bateau + 20;
+                        }
+                    }
+                }
+            }
         }
+compteur++;
     }
+    system("cls");
+    printf("VICTOIRE\n\n");
 }
 
 int main() {
