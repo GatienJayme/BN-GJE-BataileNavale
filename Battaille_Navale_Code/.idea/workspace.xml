@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="169" column="24" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
+            <state relative-caret-position="89">
+              <caret line="134" column="32" lean-forward="true" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
               <folding>
                 <element signature="e#78#96#0" expanded="true" />
               </folding>
@@ -39,6 +39,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>196</find>
+      <find>compteur</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,11 +135,13 @@
       <workItem from="1553874535181" duration="119000" />
       <workItem from="1554098860495" duration="4678000" />
       <workItem from="1554358780718" duration="15042000" />
+      <workItem from="1554388388480" duration="1266000" />
+      <workItem from="1554389733108" duration="95000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52628000" />
+    <option name="totallyTimeSpent" value="53989000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -182,8 +185,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="169" column="24" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
+        <state relative-caret-position="89">
+          <caret line="134" column="32" lean-forward="true" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
           <folding>
             <element signature="e#78#96#0" expanded="true" />
           </folding>

@@ -103,9 +103,10 @@ void BottomBorder(int width) {
 }
 
 void playgame() {
-
+    int compteur_victoire = 0;
     int compteur = 0;
-    while (compteur <= VICTOIRE) {
+    while (compteur_victoire <= VICTOIRE) {
+
         printf("choississez une cible :\n");
         // afficher la grille
         printf("Voici votre grille\n");
@@ -134,6 +135,8 @@ void playgame() {
             printf("a l'eau\n");
         } else if (valcase >= 1 && valcase < 10) { // C'est un bateau
             grille[col][li] = valcase + 10;
+            compteur_victoire++;
+            printf("compteur : %d\n", compteur_victoire);
             printf("Touche\n");
         } else {
             printf("Cretin tu as deja tire ici tir autre part");
@@ -153,6 +156,7 @@ void playgame() {
             }
             printf("%d\n", compteur);
             if (compteur == bateau) {
+                compteur_victoire++;
                 printf("Touche Coule\n");
                 for (int x = 0; x < SIZE; x++) {
                     for (int y = 0; y < SIZE; y++) {
@@ -164,7 +168,7 @@ void playgame() {
                 }
             }
         }
-compteur++;
+
     }
     system("cls");
     printf("VICTOIRE\n\n");
