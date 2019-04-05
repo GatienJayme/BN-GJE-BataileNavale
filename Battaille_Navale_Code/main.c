@@ -104,7 +104,6 @@ void BottomBorder(int width) {
 
 void playgame() {
     int compteur_victoire = 0;
-    int compteur = 0;
     while (compteur_victoire < VICTOIRE) {
 
         printf("choississez une cible :\n");
@@ -135,14 +134,17 @@ void playgame() {
             printf("a l'eau\n");
         } else if (valcase >= 1 && valcase < 10) { // C'est un bateau
             grille[col][li] = valcase + 10;
+            // fonction pour afficher la victoire
             compteur_victoire++;
             printf("compeut %d   ||  col %d    ||  li  %d   grille %d\n", compteur_victoire, col, li, grille[col][li]);
             printf("Touche\n");
         } else {
+            // deux fois tirer au meme endroit
             printf("Cretin tu as deja tire ici tir autre part");
         }
         // nb12 = 0
         // Parcourir grille
+        // Fonctions pour coule
         for (int bateau = 1; bateau <= 5; bateau++) {
             int compteur = 0;
             for (int x = 0; x < SIZE; x++) {
@@ -170,7 +172,9 @@ void playgame() {
         }
 
     }
+    // nettoyages des réponses
     system("cls");
+    // La victoire
     printf("VICTOIRE\n\n");
 }
 
@@ -197,7 +201,6 @@ int main() {
             printf("Bienvenue dans le Menu du jeu\n\n");
             printf("Taper %d pour jouer\n", jouer);
             printf("Taper %d pour afficher les regles\n", regle);
-            printf("Taper %d pour les parametres\n", parametre);
             printf("Taper %d pour quitter le jeu\n\n", quitter);
 
             scanf("%d", &choix);
@@ -219,12 +222,6 @@ int main() {
                    "1 contre torpilleur (3 cases)\n"
                    "1 sous-marin (3 cases)\n"
                    "1 torpilleur (2 cases)");
-        }
-
-        // Numero 3 = parametre de la grille
-        if (choix == parametre) {
-            printf("3. affichage des parametres de la grille\n\n");
-
         }
 
         // Numero 0 = quitter le jeu

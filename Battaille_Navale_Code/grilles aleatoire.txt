@@ -1,8 +1,0 @@
-int grilles_aleatoires() {
-    int nombreAleatoire;
-
-    srand(time(NULL));
-    nombreAleatoire =(rand() % 3)+1;
-
-    return nombreAleatoire;
-}
