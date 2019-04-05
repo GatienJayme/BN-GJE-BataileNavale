@@ -182,7 +182,6 @@ int main() {
     int choix; // Choix de la personne qui jouera
     int const jouer = 1; // Jouer a la bataille
     int const regle = 2; // Afficher les règle
-    int const parametre = 3; // Parametre de la grille
     int const quitter = 0; // Quitter le programme
 
     while (1) {
@@ -191,7 +190,6 @@ int main() {
 
         printf("Taper %d pour jouer\n", jouer);
         printf("Taper %d pour afficher les regles\n", regle);
-        printf("Taper %d pour les parametres\n", parametre);
         printf("Taper %d pour quitter le jeu\n\n", quitter);
         scanf("%d", &choix);
         while (!(choix == 1 || choix == 2 || choix == 3 || choix == 0)) {
