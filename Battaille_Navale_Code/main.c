@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define SIZE 10 // constante de la grille
+#define SIZE 9 // constante de la grille
 // Constante pour faire la grille
 #define STLC 218 // ┌, Single Top Left Corner
 #define STRC 191 // ┐, Single Top Right Corner
@@ -194,9 +194,9 @@ int main() {
         scanf("%d", &choix);
         while (!(choix == 1 || choix == 2 || choix == 3 || choix == 0)) {
             vider_buffer();
-            // Cela sert a nettoyer les réponses
+            // Cela sert a nettoyer les reponses
             system("cls");
-            printf("Bienvenue dans le Menu du jeu\n\n");
+            printf("Bienvenue dans le Menu du jeu\n\n\n");
             printf("Taper %d pour jouer\n", jouer);
             printf("Taper %d pour afficher les regles\n", regle);
             printf("Taper %d pour quitter le jeu\n\n", quitter);
