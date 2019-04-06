@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define SIZE 9 // constante de la grille
+#define SIZE 10 // constante de la grille
 // Constante pour faire la grille
 #define STLC 218 // ┌, Single Top Left Corner
 #define STRC 191 // ┐, Single Top Right Corner
@@ -20,7 +20,6 @@
 #define TOUCHE 176 // ░
 #define COULE 219 // █
 #define VICTOIRE 1+2+3+4+5
-
 
 // Affichage de la grille
 int grille[SIZE][SIZE] = {{0, 2, 2, 0, 0, 0, 0, 0, 0, 0},
