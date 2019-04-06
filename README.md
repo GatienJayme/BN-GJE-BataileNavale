@@ -46,7 +46,6 @@ mandant	du	projet.
 * Dans le repository sur Github
 * Aller sur la dernière release
 * Exécuter le fichier Bataille_Navale.exe
-* 
 
 Page	3 sur	3                                                     Version	1.1-ordo2k14 (2019)
                                                                  ©	I-CQ	VD	2017/19
