@@ -34,7 +34,7 @@ int grille[SIZE][SIZE] = {{0, 2, 2, 0, 0, 0, 0, 0, 0, 0},
                           {4, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                           {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
-// Cette fonction sert Ã  ne pas faire planter le programme en utilisant des lettres
+// Cette fonction sert a  ne pas faire planter le programme en utilisant des lettres
 
 void vider_buffer() {
 
@@ -136,10 +136,9 @@ void playgame() {
             grille[col][li] = valcase + 10;
             // fonction pour afficher la victoire
             compteur_victoire++;
-            printf("compeut %d   ||  col %d    ||  li  %d   grille %d\n", compteur_victoire, col, li, grille[col][li]);
             printf("Touche\n");
         } else {
-            // deux fois tirer au meme endroit
+            // deux tire au meme endroit
             printf("Cretin tu as deja tire ici tir autre part");
         }
         // nb12 = 0
@@ -214,7 +213,7 @@ int main() {
         // Numero 2 = regle du jeu
         if (choix == regle) {
             printf("2. Regle de la Bataille navale\n"
-                   "Une grille de jeu numerotee de 1 a 10 horizontalement et de A a J verticalement.\n"
+                   "Une grille de jeu numerotee de 1 a 9 horizontalement et de A a I verticalement.\n"
                    "1 porte avion (5 cases)\n"
                    "1 croiseur (4 cases)\n"
                    "1 contre torpilleur (3 cases)\n"
